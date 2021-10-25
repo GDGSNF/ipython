@@ -68,7 +68,7 @@ def test_columnize_random():
             rand_len = [random.randint(2,displaywidth) for i in range(nitems)]
             items = ['x'*l for l in rand_len]
             out = text.columnize(items, row_first=row_first, displaywidth=displaywidth)
-            longer_line = max([len(x) for x in out.split('\n')])
+            longer_line = max(len(x) for x in out.split("\n"))
             longer_element = max(rand_len)
             assert longer_line <= displaywidth, (
                 f"Columnize displayed something lager than displaywidth : {longer_line}\n"
@@ -104,7 +104,7 @@ def eval_formatter_check(f):
     ns = dict(n=12, pi=math.pi, stuff='hello there', os=os, u=u"café", b="café")
     s = f.format("{n} {n//4} {stuff.split()[0]}", **ns)
     assert s == "12 3 hello"
-    s = f.format(" ".join(["{n//%i}" % i for i in range(1, 8)]), **ns)
+    s = f.format(" ".join("{n//%i}" % i for i in range(1, 8)), **ns)
     assert s == "12 6 4 3 2 2 1"
     s = f.format("{[n//i for i in range(1,8)]}", **ns)
     assert s == "[12, 6, 4, 3, 2, 2, 1]"

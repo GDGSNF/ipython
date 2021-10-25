@@ -91,7 +91,6 @@ def skipif(skip_condition, msg=None):
     assert isinstance(skip_condition, bool)
     return pytest.mark.skipif(skip_condition, reason=msg)
 
-
 # A version with the condition set to true, common case just to attach a message
 # to a skip decorator
 def skip(msg=None):

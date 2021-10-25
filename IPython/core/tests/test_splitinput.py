@@ -25,9 +25,8 @@ tests = [
     ("??%hist3", ("", "??", "%hist3", "")),
     ("??%%hist4", ("", "??", "%%hist4", "")),
     ("?x*", ("", "?", "x*", "")),
+    ("Pérez Fernando", ("", "", "Pérez", "Fernando")
 ]
-tests.append(("Pérez Fernando", ("", "", "Pérez", "Fernando")))
-
 
 def test_split_user_input():
     return tt.check_pairs(split_user_input, tests)
